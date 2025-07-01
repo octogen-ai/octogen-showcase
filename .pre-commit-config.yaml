@@ -1,5 +1,7 @@
 ci:
   autofix_prs: false
+  skip:
+    - run-typecheck-sh
 repos:
   - repo: local
     hooks:
