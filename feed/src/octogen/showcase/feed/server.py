@@ -1,4 +1,5 @@
 import argparse
+import os
 from contextlib import AbstractAsyncContextManager
 
 from dotenv import find_dotenv, load_dotenv
@@ -14,7 +15,11 @@ from octogen.showcase.feed.schema import AgentResponse
 def run_server(host: str, port: int) -> None:
     """Run the feed agent server."""
     # Load environment variables but don't validate MCP settings
-    load_dotenv(find_dotenv(usecwd=True))
+    dotenv_path = os.getenv("OCTOGEN_DOTENV_PATH")
+    if dotenv_path:
+        load_dotenv(dotenv_path)
+    else:
+        load_dotenv(find_dotenv(usecwd=True))
 
     # Create server and attach checkpointer to its state
     server = AgentServer(
