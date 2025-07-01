@@ -717,7 +717,7 @@ wheels = [
 
 [[package]]
 name = "octogen-sdk-langgraph"
-version = "0.1.8"
+version = "0.1.9"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "fastapi" },
@@ -736,9 +736,9 @@ dependencies = [
     { name = "structlog" },
     { name = "uvicorn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/43/07/40bb413ff130dd5269b3295ee3a6d825046018dc3914672f2a50edf2e190/octogen_sdk_langgraph-0.1.8.tar.gz", hash = "sha256:280c4abff958e34573f95f42ec858ae601e44b8ae667d71ce0ada4e055ef32d1", size = 348626, upload-time = "2025-07-01T02:23:30.231Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/1c/c3/f23391154b637da21e77b934cb1da41b3434205b585e5c2451b2e07589f7/octogen_sdk_langgraph-0.1.9.tar.gz", hash = "sha256:8191f4462d65e484f16a0adacc7fe7527de01c02788c46de08936385ffca53be", size = 348623, upload-time = "2025-07-01T03:58:28.669Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/4a/73/f80e60691a1fe438db7fa7bd65f9191245dfe23a97db1fd404ef44e66f38/octogen_sdk_langgraph-0.1.8-py3-none-any.whl", hash = "sha256:509ee4347c3f5f772318da5f66c53d50ba9884a9304ebb4b534ac6be530c3a32", size = 23120, upload-time = "2025-07-01T02:23:28.334Z" },
+    { url = "https://files.pythonhosted.org/packages/71/d6/6997e911bca4d63784a3690d464b36eab5bfb102d4ff3c202264b99f0413/octogen_sdk_langgraph-0.1.9-py3-none-any.whl", hash = "sha256:c62d4dff0df186eb7c181a17c6b8b9510fee6e73b6e8b401845b761acd213b35", size = 23108, upload-time = "2025-07-01T03:58:27.15Z" },
 ]
 
 [[package]]
@@ -774,7 +774,7 @@ requires-dist = [
     { name = "langchain-openai", specifier = ">=0.3.16" },
     { name = "langgraph", specifier = ">=0.4.3" },
     { name = "octogen-api", specifier = ">=0.1.0a8" },
-    { name = "octogen-sdk-langgraph", specifier = ">=0.1.8" },
+    { name = "octogen-sdk-langgraph", specifier = ">=0.1.9" },
     { name = "pydantic", specifier = ">=2.11.4" },
     { name = "python-dotenv", specifier = ">=1.1.0" },
     { name = "uvicorn", specifier = ">=0.34.2" },
