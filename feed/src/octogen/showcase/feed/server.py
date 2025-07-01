@@ -37,6 +37,14 @@ def run_server(host: str, port: int) -> None:
     # Manually include the history router
     server.app.include_router(history_router)
 
+    # ------------------------------------------------------------------
+    # Health-check endpoint
+    # ------------------------------------------------------------------
+    @server.app.get("/healthcheck", include_in_schema=False)
+    async def healthcheck() -> dict[str, str]:
+        """Simple liveness probe."""
+        return {"status": "ok"}
+
     # Run server
     server.run(host=host, port=port)
 
