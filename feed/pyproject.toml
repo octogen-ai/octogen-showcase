@@ -17,6 +17,9 @@ dependencies = [
     "uvicorn>=0.34.2",
 ]
 
+[project.scripts]
+octogen_showcase_feed = "octogen.showcase.feed.server:main"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
@@ -36,7 +39,4 @@ warn_unused_ignores = true
 mypy_path = "src"
 
 [dependency-groups]
-dev = [
-    "mypy>=1.16.1",
-    "ruff>=0.12.1",
-]
+dev = ["mypy>=1.16.1", "ruff>=0.12.1"]

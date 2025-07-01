@@ -1,3 +1,4 @@
+import argparse
 from typing import AsyncGenerator
 
 from dotenv import find_dotenv, load_dotenv
@@ -10,7 +11,7 @@ from octogen.showcase.feed.router import history_router
 from octogen.showcase.feed.schema import AgentResponse
 
 
-def run_server(host: str = "0.0.0.0", port: int = 8004) -> None:
+def run_server(host: str, port: int) -> None:
     """Run the feed agent server."""
     # Load environment variables but don't validate MCP settings
     load_dotenv(find_dotenv(usecwd=True))
@@ -18,7 +19,7 @@ def run_server(host: str = "0.0.0.0", port: int = 8004) -> None:
     # Create server and attach checkpointer to its state
     server = AgentServer(
         title="Feed Agent",
-        endpoint_prefix="showcase/feed/chat",
+        endpoint_prefix="showcase/feed",
         response_model=AgentResponse,
     )
     server.app.state.checkpointer = ShopAgentInMemoryCheckpointSaver()
@@ -40,5 +41,20 @@ def run_server(host: str = "0.0.0.0", port: int = 8004) -> None:
     server.run(host=host, port=port)
 
 
-if __name__ == "__main__":
-    run_server()
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Run the feed agent server")
+    parser.add_argument(
+        "--host",
+        type=str,
+        default="0.0.0.0",
+        help="Host address to bind the server to (default: 0.0.0.0)",
+    )
+    parser.add_argument(
+        "--port",
+        type=int,
+        default=8004,
+        help="Port number to bind the server to (default: 8004)",
+    )
+
+    args = parser.parse_args()
+    run_server(host=args.host, port=args.port)
