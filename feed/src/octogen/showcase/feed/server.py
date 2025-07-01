@@ -1,5 +1,5 @@
 import argparse
-from typing import AsyncGenerator
+from contextlib import AbstractAsyncContextManager
 
 from dotenv import find_dotenv, load_dotenv
 from langchain_openai import ChatOpenAI
@@ -25,7 +25,7 @@ def run_server(host: str, port: int) -> None:
     server.app.state.checkpointer = ShopAgentInMemoryCheckpointSaver()
 
     # Define the agent factory using the server's checkpointer
-    def agent_factory() -> AsyncGenerator[ShopAgent, None]:
+    def agent_factory() -> AbstractAsyncContextManager[ShopAgent]:
         """Factory function returning a configured feed agent."""
         return create_feed_agent(
             model=ChatOpenAI(model="gpt-4.1"),
